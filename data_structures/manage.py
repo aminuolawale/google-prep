@@ -1,6 +1,7 @@
 import  all_files
 import sys
 import os
+
 def generate_test_file(module_name:str, *args, **kwargs) -> None:
     module = getattr(all_files, module_name) 
     entity = getattr(module, module_name, None)
@@ -26,7 +27,6 @@ def generate_test_files()->None:
     for file_name in filtered_files:
         if not os.path.exists(f"{file_name}_test.py"):
             generate_test_file(file_name)
-
 
 def to_camelcase(val:str)-> str:
     return "".join([a.capitalize() for a in val.split("_")])
