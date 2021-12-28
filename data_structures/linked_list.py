@@ -74,6 +74,10 @@ class LinkedList:
         prev_node.next = new_node
         self.size += 1
 
+    def extend(self, array:List[Any]) -> None:
+        for val in array:
+            self.append(val)
+
     def remove(self, index: int) -> Any:
         if index >= self.size:
             raise IndexError("List index out of range")
